@@ -3,7 +3,7 @@ import { CreateResultadoDto } from './dto/create-resultado.dto';
 import { UpdateResultadoDto } from './dto/update-resultado.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Resultado } from './entities/resultado.entity';
+import { Resultado } from './entities/result.entity';
 import { JugadorService } from 'src/jugador/jugador.service';
 
 @Injectable()

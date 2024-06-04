@@ -3,7 +3,7 @@ import { IsString, IsOptional, IsArray } from 'class-validator';
 export class UpdateTorneoDto {
   @IsOptional()
   @IsString()
-  nombre?: string;
+  name?: string;
 
   @IsOptional()
   @IsArray()

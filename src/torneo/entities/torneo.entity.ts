@@ -6,7 +6,7 @@ export class Torneo {
   id: number;
 
   @Column()
-  nombre: string;
+  name: string;
 
   @Column()
   competencia: string;

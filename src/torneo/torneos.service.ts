@@ -5,7 +5,7 @@ import { Torneo } from './entities/torneo.entity';
 import { CreateTorneoDto } from './dto/create-torneo.dto';
 import { UpdateTorneoDto } from './dto/update-torneo.dto';
 import { Jugador } from '../jugador/entities/jugador.entity';
-import { Resultado } from '../resultados/entities/resultado.entity';
+import { Resultado } from '../resultados/entities/result.entity';
 
 @Injectable()
 export class TorneoService {

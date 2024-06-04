@@ -8,10 +8,10 @@ export class Jugador {
   id: number;
 
   @Column()
-  nombre: string;
+  name: string;
 
   @Column({ nullable: true })
-  puntaje: number;
+  score: number;
 
   @ManyToMany(() => Torneo, (torneo) => torneo.jugadores)
   torneos: Torneo[];

@@ -2,9 +2,9 @@ import { IsString, IsOptional, IsNumber } from 'class-validator';
 
 export class CreateJugadorDto {
   @IsString()
-  nombre: string;
+  name: string;
 
   @IsOptional()
   @IsNumber()
-  puntaje?: number;
+  score?: number;
 }

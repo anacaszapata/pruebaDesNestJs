@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Jugador } from './entities/jugador.entity';
@@ -12,17 +12,21 @@ export class JugadorService {
     private readonly jugadorRepository: Repository<Jugador>,
   ) {}
 
-  create(createJugadorDto: CreateJugadorDto): Promise<Jugador> {
+  async create(createJugadorDto: CreateJugadorDto): Promise<Jugador> {
     const jugador = this.jugadorRepository.create(createJugadorDto);
     return this.jugadorRepository.save(jugador);
   }
 
-  findAll(): Promise<Jugador[]> {
+  async findAll(): Promise<Jugador[]> {
     return this.jugadorRepository.find();
   }
 
-  findOne(id: number): Promise<Jugador> {
-    return this.jugadorRepository.findOne(id);
+  async findOne(id: number): Promise<Jugador> {
+    const jugador = await this.jugadorRepository.findOne(id);
+    if (!jugador) {
+      throw new NotFoundException(`Jugador with ID ${id} not found`);
+    }
+    return jugador;
   }
 
   async update(
