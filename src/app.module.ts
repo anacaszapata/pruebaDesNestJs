@@ -8,6 +8,7 @@ import { Result } from './resultados/entities/result.entity';
 import { Torneo } from './torneo/entities/torneo.entity';
 import { TorneosModule } from './torneo/torneos.module';
 import { JugadorModule } from './jugador/jugador.module';
+import { CompetenciasModule } from './competencias/competencias.module';
 
 @Module({
   imports: [
@@ -27,10 +28,11 @@ import { JugadorModule } from './jugador/jugador.module';
         },
       },
     }),
-    TorneosModule,
-    JugadorModule,
+    CompetenciasModule,
+    // TorneosModule,
+    // JugadorModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+   controllers: [AppController],
+   providers: [AppService],
 })
 export class AppModule {}

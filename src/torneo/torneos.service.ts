@@ -35,11 +35,17 @@ export class TorneoService {
   }
 
   async findOne(id: number): Promise<Torneo> {
-    const torneo = await this.torneoRepository.findOne(id);
+    const torneo = await this.torneoRepository.findOne({where:{id}});
+
+    if (!torneo) {
+      throw new Error(`No se encontró ningún torneo con el ID ${id}`);
+    }
+    return torneo;
   }
 
   async update(id: number, updateTorneoDto: UpdateTorneoDto): Promise<Torneo> {
-    const torneo = await this.torneoRepository.findOne(id);
+    const torneo = await this.torneoRepository.findOne({ where: { id } });
+
     if (updateTorneoDto.jugadoresIds) {
       torneo.jugadores = await this.jugadorRepository.findByIds(
         updateTorneoDto.jugadoresIds,

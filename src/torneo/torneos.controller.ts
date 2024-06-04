@@ -8,14 +8,14 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-import { TorneosService } from '../torneo/torneos.service';
+import { TorneoService } from '../torneo/torneos.service';
 import { CreateTorneoDto } from './dto/create-torneo.dto';
 import { UpdateTorneoDto } from './dto/update-torneo.dto';
 import { ApiKeyGuard } from '../guard/apikey.guard';
 
 @Controller('torneos')
 export class TorneoController {
-  constructor(private readonly torneoService: TorneosService) {}
+  constructor(private readonly torneoService: TorneoService) {}
 
   @UseGuards(ApiKeyGuard)
   @Post()

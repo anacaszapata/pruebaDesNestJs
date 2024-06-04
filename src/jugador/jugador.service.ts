@@ -22,7 +22,7 @@ export class JugadorService {
   }
 
   async findOne(id: number): Promise<Player> {
-    const jugador = await this.jugadorRepository.findOne(id);
+    const jugador = await this.jugadorRepository.findOne({ where: { id } });
     if (!jugador) {
       throw new NotFoundException(`Jugador with ID ${id} not found`);
     }
