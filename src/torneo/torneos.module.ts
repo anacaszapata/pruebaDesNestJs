@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { TorneosService } from './torneos.service';
-import { TorneosController } from './torneos.controller';
+import { TorneoService } from './torneos.service';
+import { TorneoController } from './torneos.controller';
 
 @Module({
-  controllers: [TorneosController],
-  providers: [TorneosService],
+  controllers: [TorneoController],
+  providers: [TorneoService],
 })
 export class TorneosModule {}

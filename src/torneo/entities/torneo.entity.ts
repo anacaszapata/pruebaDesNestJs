@@ -1,4 +1,13 @@
-import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Player } from 'src/jugador/entities/player.entity';
+import { Result } from 'src/resultados/entities/result.entity';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Torneo {
@@ -6,15 +15,10 @@ export class Torneo {
   id: number;
 
   @Column()
-  nombre: string;
+  name: string;
 
   @Column()
   competencia: string;
-
-  @ManyToMany(() => Jugador)
-  @JoinTable()
-  jugadores: Jugador[];
-
-  @OneToMany(() => Resultado, resultado => resultado.torneo)
-  resultados: Resultado[];
+  jugadores: Player[];
+  resultados: Result[];
 }

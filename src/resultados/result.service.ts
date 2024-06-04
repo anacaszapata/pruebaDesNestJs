@@ -1,24 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CreateResultadoDto } from './dto/create-resultado.dto';
+import { CreateResultadoDto } from '../resultados/dto/create-resultado.dto';
 import { UpdateResultadoDto } from './dto/update-resultado.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Resultado } from './entities/resultado.entity';
+import { Result } from './entities/result.entity';
 import { JugadorService } from 'src/jugador/jugador.service';
 
 @Injectable()
 export class ResultadosService {
   constructor(
-    @InjectRepository(Resultado)
-    private readonly resultadoRepository: Repository<Resultado>,
+    @InjectRepository(Result)
+    private readonly resultadoRepository: Repository<Result>,
     private readonly jugadorService: JugadorService,
   ) {}
 
-  async create(createResultadoDto: CreateResultadoDto): Promise<Resultado> {
+  async create(createResultadoDto: CreateResultadoDto): Promise<Result> {
     const resultado = this.resultadoRepository.create(createResultadoDto);
     const savedResultado = await this.resultadoRepository.save(resultado);
 
-    // Actualizar puntajes de los jugadores
     const ganador = await this.jugadorService.findOne(
       createResultadoDto.ganadorId,
     );
