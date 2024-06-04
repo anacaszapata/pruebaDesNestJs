@@ -2,12 +2,20 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpS
 import { ResultadosService } from './result.service';
 import { UpdateResultadoDto } from './dto/update-resultado.dto';
 import { CreateResultDto } from './dto/create-resultado.dto';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Results')
 @Controller('resultados')
 export class ResultadosController {
   constructor(private readonly resultadosService: ResultadosService) {}
 
   @Post()
+  @ApiOperation({ summary: 'Create a new result' })
+  @ApiResponse({
+    status: 201,
+    description: 'The result has been successfully created.',
+  })
+  @ApiResponse({ status: 400, description: 'Invalid input.' })
   async createResult(@Body() createResultDto: CreateResultDto) {
     try {
       const result = await this.resultadosService.createResult(createResultDto);
@@ -18,6 +26,11 @@ export class ResultadosController {
   }
 
   @Get()
+  @ApiOperation({ summary: 'Get all results' })
+  @ApiResponse({
+    status: 200,
+    description: 'Successful retrieval of all results.',
+  })
   findAll() {
     return this.resultadosService.findAll();
   }

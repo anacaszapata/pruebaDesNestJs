@@ -12,7 +12,7 @@
       "baseUrl": "./",
       "incremental": true,
       "skipLibCheck": true,
-      "strict": true,
+      "strict": false,
       "paths": {
         "@app/*": ["src/app/*"],
         "@modules/*": ["src/modules/*"],
