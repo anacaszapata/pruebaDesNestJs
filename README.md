@@ -1,4 +1,5 @@
-# torneo API
+
+# Torneos API
 
 Este proyecto es una API para gestionar torneos utilizando NestJS y TypeORM. La API permite crear, actualizar, buscar y eliminar torneos. Además, proporciona una documentación interactiva utilizando Swagger.
 
