@@ -1,13 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Result } from '../../resultados/entities/result.entity';
-import { Torneo } from 'src/torneo/entities/torneo.entity';
 import {
   Column,
   Entity,
-  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Prize } from 'src/prize/entities/prize.entity';
 
 @Entity()
 export class Player {
@@ -16,17 +14,21 @@ export class Player {
     example: 1,
     description: 'The unique identifier of the player',
   })
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @ApiProperty({ example: 'Ana Sofia', description: 'The name of the player' })
   @Column()
   name: string;
 
   @ApiProperty({
-    example: 'Spider-like abilities',
+    example: '1200',
     description: 'The score of the player',
   })
   @Column({ nullable: true })
   score: number;
+
+  @OneToMany(() => Prize, prize => prize.player)
+  prize: Prize[];
+    prizeResults: any;
 }

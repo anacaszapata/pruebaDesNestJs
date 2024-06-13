@@ -33,8 +33,8 @@ export class JugadorController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.jugadorService.findOne(+id);
+  async getJugador(@Param('id') id: string): Promise<Jugador> {
+    return this.jugadorService.findJugadorById(id);
   }
 
   @Patch(':id')

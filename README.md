@@ -1,4 +1,4 @@
-# Heroes API
+# torneo API
 
 Este proyecto es una API para gestionar torneos utilizando NestJS y TypeORM. La API permite crear, actualizar, buscar y eliminar torneos. Además, proporciona una documentación interactiva utilizando Swagger.
 
@@ -24,11 +24,11 @@ Este proyecto es una API para gestionar torneos utilizando NestJS y TypeORM. La 
 
     Renombra el archivo `.env.example` a `.env` y asegúrate de que contenga las siguientes variables:
     ```
-    PORT=3000
     DB_NAME=verceldb
     DB_USER=default
     DB_PASS=sIf4rSVqjld9
     DB_HOST=ep-mute-smoke-a4deemv5-pooler.us-east-1.aws.neon.tech
+    DB_PORT=5432
     ```
 
 4. Inicia el servidor de desarrollo:

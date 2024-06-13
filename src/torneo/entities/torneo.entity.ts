@@ -1,5 +1,5 @@
-import { Player } from 'src/jugador/entities/player.entity';
-import { Result } from 'src/resultados/entities/result.entity';
+import { Player } from 'src/player/entities/player.entity';
+import { Result } from 'src/result/entities/result.entity';
 import {
   Column,
   Entity,

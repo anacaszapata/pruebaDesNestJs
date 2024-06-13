@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateResultadoDto } from '../resultados/dto/create-resultado.dto';
+import { CreateResultadoDto } from './dto/create-resultado.dto';
 import { UpdateResultadoDto } from './dto/update-resultado.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Result } from './entities/result.entity';
-import { JugadorService } from 'src/jugador/jugador.service';
+import { JugadorService } from 'src/player/jugador.service';
 
 @Injectable()
 export class ResultadosService {

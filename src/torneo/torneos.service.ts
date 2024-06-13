@@ -4,8 +4,8 @@ import { Repository } from 'typeorm';
 import { Torneo } from './entities/torneo.entity';
 import { CreateTorneoDto } from './dto/create-torneo.dto';
 import { UpdateTorneoDto } from './dto/update-torneo.dto';
-import { Player } from '../jugador/entities/player.entity';
-import { Result } from '../resultados/entities/result.entity';
+import { Player } from '../player/entities/player.entity';
+import { Result } from '../result/entities/result.entity';
 
 @Injectable()
 export class TorneoService {

@@ -3,12 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Player } from './jugador/entities/player.entity';
-import { Result } from './resultados/entities/result.entity';
+import { Player } from './player/entities/player.entity';
+import { Result } from './result/entities/result.entity';
 import { Torneo } from './torneo/entities/torneo.entity';
-import { TorneosModule } from './torneo/torneos.module';
-import { JugadorModule } from './jugador/jugador.module';
-import { CompetenciasModule } from './competencias/competencias.module';
+import { JugadorModule } from './player/jugador.module';
+import { PrizeModule } from './prize/prize.module';
 
 @Module({
   imports: [
@@ -28,9 +27,9 @@ import { CompetenciasModule } from './competencias/competencias.module';
         },
       },
     }),
-    CompetenciasModule,
+    PrizeModule,
     // TorneosModule,
-    // JugadorModule,
+    JugadorModule,
   ],
    controllers: [AppController],
    providers: [AppService],

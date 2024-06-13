@@ -1,12 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Player } from '../jugador/entities/player.entity';
+import { Player } from './entities/player.entity';
 import { CreateJugadorDto } from './dto/create-jugador.dto';
 import { UpdateJugadorDto } from './dto/update-jugador.dto';
 
 @Injectable()
 export class JugadorService {
+  findJugadorById(id: string): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectRepository(Player)
     private readonly jugadorRepository: Repository<Player>,
