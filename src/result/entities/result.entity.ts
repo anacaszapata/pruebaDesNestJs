@@ -1,6 +1,6 @@
 // result.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Player } from '../../jugador/entities/player.entity';
+import { Player } from '../../player/entities/player.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
